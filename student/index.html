@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <div class="dashboard-container">
+        <!-- Left Sidebar - Profile -->
+        <div class="sidebar left-sidebar">
+            <div class="sidebar-header">
+                <h3>Dashboard</h3>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-sun" id="theme-icon"></i>
+                </button>
+            </div>
+
+            <div class="profile-section">
+                <div class="profile-avatar" onclick="openProfileModal()">
+                    <img src="public/student-profile.png" alt="Student Profile">
+                    <div class="status-indicator"></div>
+                </div>
+                <div class="profile-info">
+                    <h2 id="student-name">Ishaan Sharma</h2>
+                    <p id="student-grade">Grade 11</p>
+                </div>
+            </div>
+
+            <div class="status-card" id="status-card">
+                <div class="status-header">
+                    <h4><i class="fas fa-chart-line"></i> Status</h4>
+                    <button onclick="closeStatus()" class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="status-content">
+                    <div class="status-item">
+                        <span>Online Status</span>
+                        <span class="badge active">Active</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Study Streak</span>
+                        <span class="streak">7 days</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Completed Today</span>
+                        <span class="completed">2 tasks</span>
+                    </div>
+                    <div class="current-activity">
+                        Reviewing Mathematics Assignment
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="dropdown">
+                    <button class="menu-item dropdown-toggle" onclick="toggleDropdown('profile-dropdown')">
+                        <i class="fas fa-user"></i>
+                        Profile
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="dropdown-content" id="profile-dropdown">
+                        <a href="#" onclick="openProfileModal()">View Profile</a>
+                        <a href="#" onclick="editProfile()">Edit Profile</a>
+                    </div>
+                </div>
+                
+                <button class="menu-item" onclick="openBadgesModal()">
+                    <i class="fas fa-award"></i>
+                    Badge Collection
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <button class="menu-item" onclick="openProgressModal()">
+                    <i class="fas fa-chart-line"></i>
+                    Progress Bar
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <button class="menu-item" onclick="openMarksModal()">
+                    <i class="fas fa-file-text"></i>
+                    Marks Centre
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <button class="menu-item" onclick="openFeedbackModal()">
+                    <i class="fas fa-check-square"></i>
+                    Checked Assignments
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="main-header">
+                <h1>My Subjects</h1>
+            </div>
+
+            <!-- Subject Boxes Grid -->
+            <div class="subjects-grid">
+                <div class="subject-card" onclick="openSubject('Mathematics')" data-subject="Mathematics">
+                    <div class="subject-image">
+                        <img src="public/aesthetic-minimalist-mathematics-workspace-with-ge.jpg" alt="Mathematics">
+                        <div class="subject-overlay"></div>
+                        <div class="subject-menu">
+                            <button class="menu-btn" onclick="event.stopPropagation(); toggleSubjectMenu(this)">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="subject-dropdown">
+                                <a href="#" onclick="changePhoto(this)"><i class="fas fa-camera"></i> Change Photo</a>
+                                <a href="#" onclick="changeColor(this)"><i class="fas fa-palette"></i> Change Color</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <h3>DSA</h3>
+                        <p>Click to upload assignments</p>
+                    </div>
+                </div>
+
+                <div class="subject-card" onclick="openSubject('Science')" data-subject="Science">
+                    <div class="subject-image">
+                        <img src="public/science-memo.png" alt="Science">
+                        <div class="subject-overlay"></div>
+                        <div class="subject-menu">
+                            <button class="menu-btn" onclick="event.stopPropagation(); toggleSubjectMenu(this)">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="subject-dropdown">
+                                <a href="#" onclick="changePhoto(this)"><i class="fas fa-camera"></i> Change Photo</a>
+                                <a href="#" onclick="changeColor(this)"><i class="fas fa-palette"></i> Change Color</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <h3>Engineering Chemistry</h3>
+                        <p>Click to upload assignments</p>
+                    </div>
+                </div>
+
+                <div class="subject-card" onclick="openSubject('English')" data-subject="English">
+                    <div class="subject-image">
+                        <img src="public/cozy-reading-nook-with-vintage-books-and-warm-ligh.jpg" alt="English">
+                        <div class="subject-overlay"></div>
+                        <div class="subject-menu">
+                            <button class="menu-btn" onclick="event.stopPropagation(); toggleSubjectMenu(this)">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="subject-dropdown">
+                                <a href="#" onclick="changePhoto(this)"><i class="fas fa-camera"></i> Change Photo</a>
+                                <a href="#" onclick="changeColor(this)"><i class="fas fa-palette"></i> Change Color</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <h3>Communication Skills</h3>
+                        <p>Click to upload assignments</p>
+                    </div>
+                </div>
+
+                <div class="subject-card" onclick="openSubject('History')" data-subject="History">
+                    <div class="subject-image">
+                        <img src="public/elegant-historical-artifacts-and-manuscripts-in-so.jpg" alt="History">
+                        <div class="subject-overlay"></div>
+                        <div class="subject-menu">
+                            <button class="menu-btn" onclick="event.stopPropagation(); toggleSubjectMenu(this)">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="subject-dropdown">
+                                <a href="#" onclick="changePhoto(this)"><i class="fas fa-camera"></i> Change Photo</a>
+                                <a href="#" onclick="changeColor(this)"><i class="fas fa-palette"></i> Change Color</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <h3>Manufacturing Processes</h3>
+                        <p>Click to upload assignments</p>
+                    </div>
+                </div>
+
+                <div class="subject-card" onclick="openSubject('Art')" data-subject="Art">
+                    <div class="subject-image">
+                        <img src="public/artistic-studio-with-paintbrushes-and-canvas-in-na.jpg" alt="Art">
+                        <div class="subject-overlay"></div>
+                        <div class="subject-menu">
+                            <button class="menu-btn" onclick="event.stopPropagation(); toggleSubjectMenu(this)">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="subject-dropdown">
+                                <a href="#" onclick="changePhoto(this)"><i class="fas fa-camera"></i> Change Photo</a>
+                                <a href="#" onclick="changeColor(this)"><i class="fas fa-palette"></i> Change Color</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <h3>Engineering graphics</h3>
+                        <p>Click to upload assignments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar - To-Do List -->
+        <div class="sidebar right-sidebar">
+            <div class="sidebar-header">
+                <h2>To-Do List</h2>
+                <button class="add-task-btn" onclick="toggleAddTask()">
+                    <i class="fas fa-plus" id="add-icon"></i>
+                </button>
+            </div>
+
+            <div class="add-task-form" id="add-task-form" style="display: none;">
+                <div class="form-group">
+                    <label>Task</label>
+                    <input type="text" id="new-task" placeholder="Enter new task...">
+                </div>
+                <div class="form-group">
+                    <label>Due Date</label>
+                    <input type="text" id="new-due" placeholder="e.g., Tomorrow, Friday...">
+                </div>
+                <div class="form-actions">
+                    <button onclick="addTask()" class="btn-primary">Add Task</button>
+                    <button onclick="toggleAddTask()" class="btn-secondary">Cancel</button>
+                </div>
+            </div>
+
+            <div class="todo-list" id="todo-list">
+                <!-- Todo items will be populated by JavaScript -->
+            </div>
+
+            <button class="view-all-btn" onclick="viewAllAssignments()">
+                View All Assignments
+            </button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Profile Modal -->
+    <div class="modal" id="profile-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Student Profile</h2>
+                <button class="edit-btn" id="edit-profile-btn" onclick="toggleEditProfile()">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="close-btn" onclick="closeModal('profile-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-grid">
+                    <div class="profile-column">
+                        <div class="profile-field">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <label>Full Name</label>
+                                <span id="profile-name">Emma Johnson</span>
+                                <input type="text" id="edit-name" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="profile-field">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <label>Age</label>
+                                <span id="profile-age">16 years old</span>
+                                <input type="number" id="edit-age" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="profile-field">
+                            <i class="fas fa-birthday-cake"></i>
+                            <div>
+                                <label>Birthday</label>
+                                <span id="profile-birthday">March 15, 2008</span>
+                                <input type="text" id="edit-birthday" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="profile-field">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <label>Contact Number</label>
+                                <span id="profile-contact">+1 (555) 123-4567</span>
+                                <input type="text" id="edit-contact" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-column">
+                        <div class="profile-field">
+                            <i class="fas fa-id-card"></i>
+                            <div>
+                                <label>Student ID</label>
+                                <span id="profile-id">STU2024001</span>
+                                <input type="text" id="edit-id" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="profile-field">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <label>Email</label>
+                                <span id="profile-email">emma.johnson@school.edu</span>
+                                <input type="email" id="edit-email" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="profile-field">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <label>Address</label>
+                                <span id="profile-address">123 Oak Street, Springfield</span>
+                                <textarea id="edit-address" style="display: none;"></textarea>
+                            </div>
+                        </div>
+                        <div class="profile-field">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <label>Emergency Contact</label>
+                                <span id="profile-emergency">Sarah Johnson - +1 (555) 987-6543</span>
+                                <input type="text" id="edit-emergency" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-actions" id="edit-actions" style="display: none;">
+                    <button onclick="saveProfile()" class="btn-primary">Save Changes</button>
+                    <button onclick="cancelEdit()" class="btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="upload-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Assignment - <span id="selected-subject"></span></h2>
+                <button class="close-btn" onclick="closeModal('upload-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="upload-type-selection">
+                    <p>Choose assignment type:</p>
+                    <div class="upload-options">
+                        <button class="upload-option" onclick="selectUploadType('mcq')">
+                            <i class="fas fa-check-square"></i>
+                            <span>MCQ</span>
+                        </button>
+                        <button class="upload-option" onclick="selectUploadType('theory')">
+                            <i class="fas fa-file-text"></i>
+                            <span>Theory</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="file-upload-section" style="display: none;">
+                    <div class="upload-header">
+                        <button onclick="backToTypeSelection()" class="back-btn">← Back</button>
+                        <span class="upload-badge" id="upload-type-badge"></span>
+                    </div>
+                    <div class="file-drop-zone">
+                        <i class="fas fa-upload"></i>
+                        <p>Upload your <span id="upload-type-text"></span> assignment</p>
+                        <small>Supported formats: PDF, DOC, DOCX, JPG, PNG</small>
+                        <input type="file" id="file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" onchange="handleFileUpload(event)">
+                        <button onclick="document.getElementById('file-input').click()" class="file-select-btn">
+                            <i class="fas fa-file"></i>
+                            Choose File from Desktop
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Badges Modal -->
+    <div class="modal" id="badges-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Badge Collection</h2>
+                <button class="close-btn" onclick="closeModal('badges-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="badges-grid" id="badges-grid">
+                    <!-- Badges will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Modal -->
+    <div class="modal" id="progress-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Academic Progress</h2>
+                <button class="close-btn" onclick="closeModal('progress-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="overall-progress">
+                    <h3>Overall Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%"></div>
+                    </div>
+                    <p>78% Complete</p>
+                </div>
+                <div class="subject-progress" id="subject-progress">
+                    <!-- Subject progress will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marks Modal -->
+    <div class="modal" id="marks-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Marks Centre</h2>
+                <button class="close-btn" onclick="closeModal('marks-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="marks-content" id="marks-content">
+                    <!-- Marks will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal" id="feedback-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Assignment Feedback</h2>
+                <button class="close-btn" onclick="closeModal('feedback-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="feedback-content" id="feedback-content">
+                    <!-- Feedback will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

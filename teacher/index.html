@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - DSA Course</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">Teacher Dashboard</h1>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="profile-menu">
+                        <img src="/placeholder.svg?height=40&width=40" alt="Profile" class="profile-avatar">
+                        <span class="profile-name">Dr. Sarah Johnson</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Sidebar -->
+            <aside class="left-sidebar">
+                <div class="professor-card">
+                    <img src="/placeholder.svg?height=120&width=120" alt="Professor" class="professor-image">
+                    <div class="professor-info">
+                        <h3 class="professor-name">Dr. Sarah Johnson</h3>
+                        <p class="professor-subject">Data Structures & Algorithms</p>
+                        <p class="professor-department">Computer Science Department</p>
+                        <p class="professor-email">sarah.johnson@university.edu</p>
+                    </div>
+                </div>
+
+                <div class="sections-container">
+                    <h4 class="sections-title">Class Sections</h4>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" id="sectionDropdown">
+                            <span>Select Section</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="sectionMenu">
+                            <div class="dropdown-item" data-section="A">Section A</div>
+                            <div class="dropdown-item" data-section="B">Section B</div>
+                            <div class="dropdown-item" data-section="C">Section C</div>
+                            <div class="dropdown-item" data-section="D">Section D</div>
+                            <div class="dropdown-item" data-section="E">Section E</div>
+                            <div class="dropdown-item" data-section="F">Section F</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="students-list" id="studentsList">
+                    <h4 class="students-title">Students</h4>
+                    <div class="students-container" id="studentsContainer">
+                        <!-- Students will be populated by JavaScript -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center Content -->
+            <div class="center-content">
+                <!-- Calendar Section -->
+                <div class="calendar-section">
+                    <h3 class="section-title">Assignment Deadlines</h3>
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="calendar-nav" id="prevMonth">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h4 class="calendar-month" id="currentMonth">December 2024</h4>
+                            <button class="calendar-nav" id="nextMonth">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid">
+                            <!-- Calendar will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaderboard Section -->
+                <div class="leaderboard-section">
+                    <h3 class="section-title">Section Performance Leaderboard</h3>
+                    <div class="chart-container">
+                        <canvas id="leaderboardChart" width="400" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside class="right-sidebar">
+                <div class="assignments-section">
+                    <h3 class="section-title">Assignments to Check</h3>
+                    <div class="assignments-list" id="assignmentsList">
+                        <!-- Assignments will be populated by JavaScript -->
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Assignment Viewer Modal -->
+        <div class="modal" id="assignmentModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modalTitle">Assignment Review</h3>
+                    <button class="modal-close" id="modalClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="assignment-tools">
+                        <button class="tool-btn active" data-tool="pen">
+                            <i class="fas fa-pen"></i> Pen
+                        </button>
+                        <button class="tool-btn" data-tool="pencil">
+                            <i class="fas fa-pencil-alt"></i> Pencil
+                        </button>
+                        <button class="tool-btn" data-tool="highlighter">
+                            <i class="fas fa-highlighter"></i> Highlighter
+                        </button>
+                        <button class="tool-btn" data-tool="comment">
+                            <i class="fas fa-comment"></i> Comment
+                        </button>
+                    </div>
+                    <div class="assignment-content">
+                        <div class="question-container" id="questionContainer">
+                            <!-- Assignment content will be loaded here -->
+                        </div>
+                        <div class="grading-controls">
+                            <button class="grade-btn correct" id="correctBtn">
+                                <i class="fas fa-check"></i> Correct
+                            </button>
+                            <button class="grade-btn incorrect" id="incorrectBtn">
+                                <i class="fas fa-times"></i> Incorrect
+                            </button>
+                        </div>
+                        <div class="edit-controls" id="editControls" style="display: none;">
+                            <textarea class="feedback-input" placeholder="Add your feedback here..."></textarea>
+                            <button class="submit-feedback">Submit Feedback</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student History Modal -->
+        <div class="modal" id="studentModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="studentModalTitle">Student History</h3>
+                    <button class="modal-close" id="studentModalClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="student-history" id="studentHistory">
+                        <!-- Student history will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
