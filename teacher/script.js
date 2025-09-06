@@ -40,16 +40,16 @@ class StudentManager {
 
   generateStudents(section) {
     const names = [
-      "Aarrav Sharma",
-      "Vivaan Patel",
-      "Aditya Gupta",
-      "Vihaan Singh",
-      "Krishna Nair",
-      "Diya Mehra",
-      "Somya Jain",
-      "Zara Shah",
-      "Dhruv Bajaj",
-      "Karan Sethi",
+      "Alice Johnson",
+      "Bob Smith",
+      "Carol Davis",
+      "David Wilson",
+      "Emma Brown",
+      "Frank Miller",
+      "Grace Lee",
+      "Henry Taylor",
+      "Ivy Chen",
+      "Jack Anderson",
     ]
 
     return names

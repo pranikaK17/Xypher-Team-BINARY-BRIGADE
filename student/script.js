@@ -10,11 +10,11 @@ const studentProfile = {
   age: 16,
   birthday: "March 15, 2008",
   contact: "+91 98345 87293",
-  email: "emma.johnson@school.edu",
+  email: "ishaan.sharma@school.edu",
   grade: "Grade 11",
   studentId: "STU2024001",
-  address: "123 Oak Street, Springfield",
-  emergencyContact: "Sarah Johnson - +1 (555) 987-6543",
+  address: "MUJ, Jaipur, Rajastha",
+  emergencyContact: "Rishi Sharma - +91 8262839163",
 }
 
 const badges = [

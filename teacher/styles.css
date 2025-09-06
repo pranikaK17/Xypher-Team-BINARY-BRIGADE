@@ -1,24 +1,24 @@
 /* CSS Variables for Theme */
 :root {
   --background: #ffffff;
-  --foreground: #4b5563;
+  --foreground: #092b5b;
   --card: #fefce8;
-  --card-foreground: #4b5563;
+  --card-foreground: #214577;
   --popover: #ffffff;
-  --popover-foreground: #4b5563;
-  --primary: #a16207;
+  --popover-foreground: #224370;
+  --primary: #075ca1;
   --primary-foreground: #ffffff;
-  --secondary: #d69e2e;
+  --secondary: #2e90d6;
   --secondary-foreground: #ffffff;
   --muted: #fefce8;
-  --muted-foreground: #6b7280;
-  --accent: #d69e2e;
-  --accent-foreground: #4b5563;
-  --destructive: #be123c;
+  --muted-foreground: #455779;
+  --accent: #2e6cd6;
+  --accent-foreground: #213e65;
+  --destructive: #1288be;
   --destructive-foreground: #ffffff;
   --border: #e5e7eb;
   --input: #f1f5f9;
-  --ring: rgba(162, 32, 7, 0.3);
+  --ring: rgba(7, 66, 162, 0.3);
   --radius: 0.5rem;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -31,17 +31,17 @@
   --card-foreground: #f9fafb;
   --popover: #374151;
   --popover-foreground: #f9fafb;
-  --primary: #d69e2e;
+  --primary: #2e60d6;
   --primary-foreground: #1f2937;
   --secondary: #6b7280;
   --secondary-foreground: #f9fafb;
   --muted: #4b5563;
   --muted-foreground: #9ca3af;
-  --accent: #d69e2e;
+  --accent: #2e71d6;
   --accent-foreground: #1f2937;
   --border: #4b5563;
   --input: #374151;
-  --ring: rgba(214, 158, 46, 0.3);
+  --ring: rgba(46, 82, 214, 0.3);
 }
 
 /* Base Styles */
