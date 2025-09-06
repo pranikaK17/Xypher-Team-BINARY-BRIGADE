@@ -48,4 +48,4 @@ HTML, CSS, JS, Typescript, PHP
 
 ---
 
-🔗 GitHub: [github.com/your-repo-name](https://github.com/your-repo-name)
+🔗 GitHub: [[github.com/your-repo-name](https://github.com/your-repo-name)](https://github.com/pranikaK17/Xypher-Team-BINARY-BRIGADE.git)
