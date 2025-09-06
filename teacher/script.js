@@ -40,16 +40,16 @@ class StudentManager {
 
   generateStudents(section) {
     const names = [
-      "Alice Johnson",
-      "Bob Smith",
-      "Carol Davis",
-      "David Wilson",
-      "Emma Brown",
-      "Frank Miller",
-      "Grace Lee",
-      "Henry Taylor",
-      "Ivy Chen",
-      "Jack Anderson",
+      "Aliya hassan",
+      "karan bajaj",
+      "arjun vaidya",
+      "dhruv jain",
+      "kashish mehta",
+      "lavi bose",
+      "vaidehi sharma",
+      "vivaan pandey",
+      "shreya maheshwari",
+      "pihu goyal",
     ]
 
     return names
@@ -496,6 +496,9 @@ class LeaderboardChart {
       this.ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--foreground")
       this.ctx.textAlign = "center"
       this.ctx.fillText(`Section ${item.section}`, x + width / 2, height - padding + 20)
+
+    
+
 
       // Draw average value
       this.ctx.fillText(`${item.average.toFixed(1)}%`, x + width / 2, y - 10)
